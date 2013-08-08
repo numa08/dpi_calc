@@ -2,6 +2,7 @@ package models
 
 trait DpiCalcuable{
   def dpi(width:Pixel, height:Pixel, inch:Double):Double = {
-    (width.pow + height.pow).sqrt.value / inch
+    val dpi = (width.pow + height.pow).sqrt.value / inch
+    math.round(dpi)
   }
 }
