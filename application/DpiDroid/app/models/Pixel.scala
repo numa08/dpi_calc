@@ -2,7 +2,6 @@ package models
 
 case class Pixel(value : Double){
 
-  implicit def doubleToPixel(num:Double) = Pixel(num)
 
   def pow = {
     Pixel(math.pow(value, 2))
@@ -15,4 +14,8 @@ case class Pixel(value : Double){
   def sqrt = {
     Pixel(math.sqrt(value))
   }
+}
+
+object Pixel{
+  implicit def doubleToPixel(num:Double) = Pixel(num)
 }
