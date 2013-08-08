@@ -1,5 +1,6 @@
 package controllers
 
+import models._
 import play.api._
 import play.api.mvc._
 
@@ -9,7 +10,7 @@ object Application extends Controller {
     val width = 1136
     val height = 640
     val inch = 4
-    val dpi = math.sqrt(math.pow(1136, 2) + math.pow(640, 2) ) / inch
+    val dpi = new Display(width, height, inch).dpi
     Ok(dpi.toString)
   }
   
