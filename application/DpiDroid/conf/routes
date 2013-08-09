@@ -4,7 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET    /calc/:width/:height/:inch    controllers.Application.calc(width: Long, height: Long, inch: Long)
+GET    /calc/:width/:height/:inch    controllers.Application.calc(width: Long, height: Long, inch: Double)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

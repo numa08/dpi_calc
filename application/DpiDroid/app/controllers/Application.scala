@@ -11,7 +11,7 @@ object Application extends Controller {
     Ok(views.html.main.render)
   }
 
-  def calc(width: Long, height: Long, inch: Long) = Action {
+  def calc(width: Long, height: Long, inch: Double) = Action {
     val dpi = new Display(width, height, inch).dpi
     Ok(dpi.toString)
   }
