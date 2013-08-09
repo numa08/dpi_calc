@@ -1,15 +1,48 @@
-@(title: String)(content: Html)
-
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>@title</title>
+        <title>Hello Dpi</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        @content
+      <table>
+        <tr>
+          <td>画面サイズ</td>
+          <td><input id="inch" type="text" name="" /></td>
+        </tr>
+        <tr>
+          <td>解像度</td>
+          <td><input id="width" type="text" name="" />
+            x
+            <input id="height" type="text" name="" />
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="計算" onClick="calcDpi()"/></td>
+          <td><input id="result" type="text" name="" readonly="readonly"/></td>
+        </tr>
+      </table>
+      <script type="text/javascript">
+        var calcComplete = function(dpi){
+          $("#result").val(dpi);
+        }
+
+        var calcDpi = function(){
+          //TODO get values
+          var width = $("#width").val();
+          var height = $("#height").val();
+          var inch = $("#inch").val();
+          //TODO async calculat
+          $.ajax({
+              url : "/calc/" + width + "/" + height + "/" + inch ,
+              type : "GET",
+              success : calcComplete
+              });
+          //TODO show result
+        }
+      </script>
     </body>
 </html>
